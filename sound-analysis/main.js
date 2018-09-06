@@ -44,7 +44,7 @@ function draw() {
     let amp = spectrum[i];
     let y = map(amp, 0, 526, height, 0);
     fill(i, 525, 525);
-    rect(i * w, y, w - 2, height - y);
+    rect(i * w, y, w - 2, height - y/2);
   }
 
   stroke(525);
