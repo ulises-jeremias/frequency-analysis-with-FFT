@@ -13,9 +13,11 @@ from scipy.fftpack import fft
 class AudioStream(object):
     def __init__(self):
         # pyqtgraph stuff
-        pg.setConfigOptions(antialias=True)
-        pg.setConfigOption('background', 'w')
-        pg.setConfigOption('foreground', 'k')
+        pg.setConfigOptions(
+            antialias=True,
+            background='w',
+            foreground='k'
+        )
 
         self.traces = dict()
         self.app = QtGui.QApplication(sys.argv)
@@ -32,8 +34,10 @@ class AudioStream(object):
         wf_yaxis.setTicks([wf_ylabels])
 
         sp_xlabels = [
-            (np.log10(10), '10'), (np.log10(100), '100'),
-            (np.log10(1000), '1000'), (np.log10(22050), '22050')
+            (np.log10(10), '10'),
+            (np.log10(100), '100'),
+            (np.log10(1000), '1000'),
+            (np.log10(22050), '22050')
         ]
 
         sp_xaxis = pg.AxisItem(orientation='bottom')
@@ -86,7 +90,9 @@ class AudioStream(object):
                 self.spectrum.setLogMode(x=True, y=True)
                 self.spectrum.setYRange(-4, 0, padding=0)
                 self.spectrum.setXRange(
-                    np.log10(20), np.log10(self.RATE / 2), padding=0.005
+                    np.log10(20),
+                    np.log10(self.RATE / 2),
+                    padding=0.005
                 )
 
     def update(self):
@@ -94,7 +100,7 @@ class AudioStream(object):
         wf_data = struct.unpack(str(2 * self.CHUNK) + 'B', wf_data)
         wf_data = np.array(wf_data, dtype='b')[::2] + 128
 
-        self.set_plotdata(name='waveform', data_x=self.x, data_y=wf_data,)
+        self.set_plotdata(name='waveform', data_x=self.x, data_y=wf_data)
 
         sp_data = fft(np.array(wf_data, dtype='int8') - 128)
         sp_data = np.abs(sp_data[0:int(self.CHUNK / 2)]) * 2 / (128 * self.CHUNK)
