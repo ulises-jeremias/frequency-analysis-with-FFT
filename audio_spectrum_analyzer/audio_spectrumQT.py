@@ -28,10 +28,12 @@ class AudioStream(object):
         wf_xlabels = [(0, '0'), (2048, '2048'), (4096, '4096')]
         wf_xaxis = pg.AxisItem(orientation='bottom')
         wf_xaxis.setTicks([wf_xlabels])
+        wf_xaxis.setLabel(text='Wavelength')
 
         wf_ylabels = [(0, '0'), (127, '128'), (255, '255')]
         wf_yaxis = pg.AxisItem(orientation='left')
         wf_yaxis.setTicks([wf_ylabels])
+        wf_yaxis.setLabel(text='Intensity')
 
         sp_xlabels = [
             (np.log10(10), '10'),
@@ -42,13 +44,20 @@ class AudioStream(object):
 
         sp_xaxis = pg.AxisItem(orientation='bottom')
         sp_xaxis.setTicks([sp_xlabels])
+        sp_xaxis.setLabel(text='Frecuency')
 
         self.waveform = self.win.addPlot(
-            title='WAVEFORM', row=1, col=1, axisItems={'bottom': wf_xaxis, 'left': wf_yaxis},
+            title='WAVEFORM',
+            row=1,
+            col=1,
+            axisItems={'bottom': wf_xaxis, 'left': wf_yaxis},
         )
 
         self.spectrum = self.win.addPlot(
-            title='SPECTRUM', row=2, col=1, axisItems={'bottom': sp_xaxis},
+            title='SPECTRUM',
+            row=2,
+            col=1,
+            axisItems={'bottom': sp_xaxis},
         )
 
         # pyaudio stuff
