@@ -2,7 +2,7 @@
 
 ## Audio Annalysis
 
-### Why a Music Visualizer?
+### Why an Audio Visualizer?
 
 My main purpose in building this was to learn more about ProcessingJS and Python as well as how the Fast Fourier Transform works.
 
