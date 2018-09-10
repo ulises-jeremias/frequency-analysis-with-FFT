@@ -40,8 +40,4 @@ In this project you can see how the waveform of an audio received by microphone 
 
 ## Terrain Generation
 
-### Projects
-
-#### Terrain Generator
-
 I create a 3D procedural terrain using **Perlin Noise** and the _beginShape()_ function in Processing.
