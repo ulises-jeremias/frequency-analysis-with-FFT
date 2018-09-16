@@ -1,6 +1,6 @@
 # Frecuency Analysis with FFT
 
-## Audio Annalysis
+## Audio Analysis
 
 ### Why an Audio Visualizer?
 
