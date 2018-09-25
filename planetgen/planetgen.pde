@@ -13,7 +13,7 @@ int br1 = 255;
 void setup() {
     cam = new PeasyCam(this, 0, 0, 0, 1000);
     size(800, 800, P3D);
-    translate(width / 2, height / 2);
+    translate(width/2, height/2);
 }
 
 void draw() {
@@ -26,12 +26,12 @@ void draw() {
     float maxrad = 2000;
     colorMode(HSB);
     
-    for (float a = 0; a < PI; a += PI / pidiv) {
+    for (float a = 0; a < PI; a += PI/pidiv) {
 
         beginShape(TRIANGLE_STRIP);
-        for (float b = 0; b < TWO_PI; b += PI / pidiv) {
-            r = map(noise(scl * cos(b) * cos(a) + minrad, scl * cos(b) * sin(a) + minrad, scl * flatrate * sin(b) + minrad), 0, 1, minrad, maxrad);
-            r2 = map(noise(scl * cos(b) * cos(a + PI / pidiv) + minrad, scl * cos(b) * sin(a + PI / pidiv) + minrad, scl * flatrate * sin(b) + minrad), 0, 1, minrad, maxrad);
+        for (float b = 0; b < TWO_PI; b += PI/pidiv) {
+            r = map(noise(scl*cos(b)*cos(a) + minrad, scl*cos(b)*sin(a) + minrad, scl*flatrate*sin(b) + minrad), 0, 1, minrad, maxrad);
+            r2 = map(noise(scl*cos(b)*cos(a + PI/pidiv) + minrad, scl*cos(b)*sin(a + PI/pidiv) + minrad, scl*flatrate*sin(b) + minrad), 0, 1, minrad, maxrad);
             // r = r2 = minrad;
             
             hue = map(r, minrad, maxrad, 0, 360);
@@ -39,8 +39,8 @@ void draw() {
             // stroke(hue, sat, 255);
             // fill(hue, sat1, br1);
             strokeWeight(1);
-            vertex(r * cos(b) * cos(a), -r * cos(b) * sin(a), flatrate * r * sin(b));
-            vertex((r2) * cos(b) * cos(a + PI / pidiv), (-r2) * cos(b) * sin(a + PI / pidiv), flatrate * (r2) * sin(b));
+            vertex(r*cos(b)*cos(a), -r*cos(b)*sin(a), flatrate*r*sin(b));
+            vertex(r2*cos(b)*cos(a + PI/pidiv), -r2*cos(b)*sin(a + PI/pidiv), flatrate*r2*sin(b));
         }
         endShape(CLOSE);
     }
