@@ -36,8 +36,8 @@ void draw() {
             
             hue = map(r, minrad, maxrad, 0, 360);
             
-            // stroke(hue, sat, 255);
-            // fill(hue, sat1, br1);
+            stroke(hue, sat, 255);
+            fill(hue, sat1, br1);
             strokeWeight(1);
             vertex(r*cos(b)*cos(a), -r*cos(b)*sin(a), flatrate*r*sin(b));
             vertex(r2*cos(b)*cos(a + PI/pidiv), -r2*cos(b)*sin(a + PI/pidiv), flatrate*r2*sin(b));
