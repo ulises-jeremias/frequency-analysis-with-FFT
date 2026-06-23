@@ -1,4 +1,8 @@
-# Frecuency Analysis with FFT
+# Frequency Analysis with FFT
+
+## Status
+
+This project is no longer actively maintained. The last commit was on October 2, 2018, and no further updates or bug fixes are planned. The code remains available for reference and educational use.
 
 ## Audio Analysis
 
